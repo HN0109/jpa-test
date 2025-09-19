@@ -1,0 +1,7 @@
+### delete. normal example
+DELETE http://localhost:8080/jpa-test/metric/1001
+
+### delete v2. ObjectOptimisticLockingFailureException example
+DELETE http://localhost:8080/jpa-test/metric/1001/v2
+
+###

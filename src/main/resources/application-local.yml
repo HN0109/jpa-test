@@ -1,0 +1,50 @@
+spring:
+  datasource:
+#    driver-class-name: org.h2.Driver
+#    url: >
+#      jdbc:h2:mem:testdb
+#    username: 'sa'
+#    password: ''
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: >
+      jdbc:mysql://localhost:3306/jpa-test
+      ?useUnicode=true
+      &characterEncoding=utf-8
+      &useAffectedRows=true
+      &allowMultiQueries=true
+      &useSSL=false
+      &serverTimezone=Asia/Shanghai
+      &allowPublicKeyRetrieval=true
+    username: 'root'
+    password: 'root'
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      minimum-idle: 1
+      maximum-pool-size: 64
+      idle-timeout: 300000 # 连接最大空闲 5分钟
+      max-lifetime: 600000 # 连接最大存活 10分钟
+      connection-timeout: 10000
+      connection-test-query: 'select 1'
+      transaction-isolation: 'TRANSACTION_READ_COMMITTED'
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    database: mysql
+#  h2:
+#    console:
+#      enabled: true
+#      path: /h2-console
+
+
+logging:
+  charset:
+    file: utf-8
+    console: utf-8
+  level:
+    root: info
+    org.hibernate.type: TRACE
+  pattern:
+    console: '%d{HH:mm:ss.SSS} %clr(%5p) [%25.25t] %clr(%-40.40logger{39}){cyan} %clr(%6L){magenta}: %clr([%X{traceId:-},%X{spanId:-}]){cyan} %m%n'
+

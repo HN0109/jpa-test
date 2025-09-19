@@ -1,0 +1,27 @@
+server:
+  port: 8080
+  shutdown: graceful
+  tomcat:
+    threads:
+      max: 512
+spring:
+  application:
+    name: JPA-TEST
+  jpa:
+    show-sql: false
+    open-in-view: false
+    hibernate:
+      ddl-auto: none
+  main:
+    allow-bean-definition-overriding: true
+  servlet:
+    multipart:
+      max-file-size: 1GB
+      max-request-size: 1GB
+      enabled: true
+  profiles:
+    active: local
+#  threads:
+#    virtual:
+#      enabled: true
+
